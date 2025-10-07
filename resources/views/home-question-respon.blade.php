@@ -56,6 +56,7 @@
         <p class="lead">Pertanyaan Anda telah berhasil dikirim.</p>
 
         <blockquote>
+
             <strong>Pertanyaan Anda:</strong><br>
            <h5>{{ $pertanyaan }}</h5>
         </blockquote>

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('assets/fonts/MyCustomFonts.ttf');
+}
+
+.font-custom{
+    font-family: 'MyCustomFonts';
+}

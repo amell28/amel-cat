@@ -8,6 +8,7 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -56,6 +57,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
+        <img src="{{ asset('/assets/images/logo.png') }}" alt="Logo" size="30" height="60">
             <a class="navbar-brand" href="#">My Laravel App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -86,6 +88,7 @@
           <p> {{ $last_login }} </p>
     </section>
 
+
     <!-- Content Section -->
     <section id="content" class="container ">
         <div class="row">
@@ -93,7 +96,7 @@
                 {{-- About --}}
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title">About Our Application</h5>
+                        <h5 class="font-custom">About Our Application</h5>
                         <p class="card-text">Our application provides a clean and intuitive interface, allowing users to navigate easily and perform tasks efficiently. Built with Laravel and Bootstrap, it offers flexibility and responsiveness.</p>
                         <a href="#" class="btn btn-primary">Explore More</a>
                     </div>
@@ -166,6 +169,13 @@
             </ul>
         </div>
         @endif
+
+       @if (session('info'))
+    <div class="alert alert-info">
+        {!! session('info') !!}
+    </div>
+@endif
+
 
        <form action="{{ route('question.store') }}" method="POST">
 	        @csrf
