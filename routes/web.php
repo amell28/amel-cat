@@ -8,6 +8,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
@@ -51,3 +52,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 
 Route::resource('pelanggan', PelangganController::class);
 
+Route::resource('user', UserController::class);
