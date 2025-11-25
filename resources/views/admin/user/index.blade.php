@@ -60,9 +60,8 @@
 
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
-                                        <td>{{ $item->password }}</td> 
+                                        <td>{{ $item->password }}</td>
                                         <td>
-                                            {{-- Tombol Edit dan Hapus tetap sama --}}
                                             <a href="{{ route('user.edit', $item->id) }} "class="btn btn-info btn-sm">
                                                 Edit
                                             </a>
@@ -76,6 +75,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="mt-3">
+                            {{ $dataUser->links('pagination::bootstrap-5') }}
+                        </div>
                     </div>
                 </div>
             </div>
