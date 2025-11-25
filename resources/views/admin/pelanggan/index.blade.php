@@ -82,19 +82,41 @@
                                     <th class="border-0">Gender</th>
                                     <th class="border-0">Email</th>
                                     <th class="border-0">Phone</th>
+                                    <th class="border-0 text-center">Files</th>
                                     <th class="border-0 rounded-end">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($dataPelanggan as $item)
                                     <tr>
-                                        <td>{{ $item->first_name }}</td>
-                                        <td>{{ $item->last_name }}</td>
-                                        <td>{{ $item->birthday }}</td>
-                                        <td>{{ $item->gender }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>
+                                        <td class="align-middle">{{ $item->first_name }}</td>
+                                        <td class="align-middle">{{ $item->last_name }}</td>
+                                        <td class="align-middle">{{ $item->birthday }}</td>
+                                        <td class="align-middle">{{ $item->gender }}</td>
+                                        <td class="align-middle">{{ $item->email }}</td>
+                                        <td class="align-middle">{{ $item->phone }}</td>
+
+                                        {{-- BAGIAN LOGIKA TAMPILAN FILE (TANPA CSS EXTERNAL) --}}
+                                        <td class="align-middle text-center">
+                                            @if ($item->files->count() > 0)
+                                                {{-- Jika ada file --}}
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <img src="{{ asset('storage/' . $item->files->first()->path) }}"
+                                                        width="40" height="40" class="rounded-circle me-2"
+                                                        style="object-fit: cover; border: 1px solid #ddd;">
+                                                    <span class="badge bg-success rounded-pill">{{ $item->files->count() }} Files</span>
+                                                </div>
+                                            @else
+                                                {{-- Jika TIDAK ada file (Menggunakan Inline Style pada atribut style="") --}}
+                                                <span class="badge rounded-pill"
+                                                      style="background-color: #f0bd66; color: white; padding: 6px 18px; font-size: 12px;">
+                                                    No Files
+                                                </span>
+                                            @endif
+                                        </td>
+                                        {{-- END BAGIAN FILE --}}
+
+                                        <td class="align-middle">
                                             <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
                                                 class="btn btn-info btn-sm">
                                                 <svg class="icon icon-xs me-2" data-slot="icon" fill="none"

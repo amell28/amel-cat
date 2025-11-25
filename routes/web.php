@@ -53,3 +53,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 Route::resource('pelanggan', PelangganController::class);
 
 Route::resource('user', UserController::class);
+
+Route::delete('/pelanggan/foto/{id}', [PelangganController::class, 'destroyFoto'])->name('pelanggan.foto.delete');

@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Models;
 
+use App\Models\PelangganFile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -37,5 +37,13 @@ class Pelanggan extends Model
                 }
             });
         }
+    }
+
+    // Tambahkan ini di dalam class Pelanggan
+    public function files()
+    {
+        // 'pelanggan_id' adalah foreign key di tabel pelanggan_files
+        // 'pelanggan_id' (kedua) adalah primary key di tabel pelanggan
+        return $this->hasMany(PelangganFile::class, 'pelanggan_id', 'pelanggan_id');
     }
 }
